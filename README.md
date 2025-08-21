@@ -24,7 +24,7 @@
 - **Strong Generalization Capability** : Built upon self-developed 3D data and video model priors, Matrix-3D enables the generation of diverse and high-quality 3D scenes.
 - **Speed-Quality Balance**: Two types of panoramic 3D reconstruction methods are proposed to achieve rapid and detailed 3D reconstruction respectively.
 
-If you want generate real-time interactive videos, please visit [Matrix-Game](https://github.com/SkyworkAI/Matrix-Game) for details.
+
 
 ## Image-to-Scene Generation
 <table border="1">
@@ -173,6 +173,7 @@ If you want generate real-time interactive videos, please visit [Matrix-Game](ht
 </tr>
 </table>
 
+**Related Project**: If you want to explore Real-Time Interactive Long-Sequence World Models, please visit [Matrix-Game 2.0](https://github.com/SkyworkAI/Matrix-Game/tree/main/Matrix-Game-2) for details.
 
 ## 📦 Installation
 Currently tested on Linux system with NVIDIA GPU.
