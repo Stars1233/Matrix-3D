@@ -190,7 +190,7 @@ conda create -n matrix3d python=3.10
 conda activate matrix3d
 
 # Install torch and torchvision (with GPU support, we use CUDA 12.4 Version)
-pip3 install torch==2.7.1 torchvision==0.22.1
+pip install torch==2.7.0 torchvision==0.22.0
 
 #Run installation script
 chmod +x install.sh
