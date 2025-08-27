@@ -310,7 +310,10 @@ def main(args):
         model_manager.load_lora("./checkpoints/Wan-AI/wan_lora/pano_video_gen_480p.ckpt", lora_alpha=1.0)
 
     pipe = WanVideoPipeline.from_model_manager(model_manager, device=f"cuda:{dist.get_rank()}",use_usp=True if dist.get_world_size() > 1 else False)
-    pipe.enable_vram_management(num_persistent_param_in_dit=None)
+    if args.enable_vram_management:
+        pipe.enable_vram_management(num_persistent_param_in_dit=0)
+    else:
+        pipe.enable_vram_management(num_persistent_param_in_dit=None)
 
 
 
@@ -369,5 +372,6 @@ if __name__ == "__main__":
     parser.add_argument("--seed", type=int, default=0, help="the generation seed")
     parser.add_argument("--resolution", type=int, default=720, help="the working resolution of the panoramic video generation model.")
     parser.add_argument("--inout_dir", type=str, default="./output/example1")
+    parser.add_argument("--enable_vram_management", action="store_true", help="whether to enable vram management for running on low mem devices.")
     args = parser.parse_args()
     main(args)
