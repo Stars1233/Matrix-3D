@@ -98,10 +98,11 @@ def unreal_to_opencv_w2c(pitch, yaw, roll, x, y, z):
 class PanoraScene(BaseManyViewDataset):
     """Panorama scene dataset for pano-lrm training and inference."""
     
-    def __init__(self, mp4_path, pose_path, num_frames=49, 
+    def __init__(self, mp4_path, pose_path, out_path, num_frames=49, 
                  out_hw=(480,720), fov=90, *args, **kwargs):
         self.mp4_path = mp4_path
         self.pose_path = pose_path
+        self.out_path = out_path
         # Remove unsupported parameters from kwargs
         kwargs.pop('num_seq', None)
         kwargs.pop('min_thresh', None)
@@ -216,6 +217,7 @@ class PanoraScene(BaseManyViewDataset):
                 dataset='panorama',
                 label='',
                 instance=instance.split('/')[-1],
+                out_dir = self.out_path,
             ))
 
         for idx in extra_idxs:
