@@ -274,7 +274,14 @@ torchrun --nproc_per_node ${VISIBLE_GPU_NUM} code/panoramic_image_to_video.py \
 You can switch the resolution option in [480,720] to perform video generation under 960 &times; 480 resolution or 1440 &times; 720 resolution. 
 The generated panoramic tour video will be saved in `output/example1/pano_video.mp4`. It will take about an hour to generate a 720p video on an A800 GPU. You can accelerate this process with multi-gpu inference by setting VISIBLE_GPU_NUM.
 
-
+To run the video generation step on devices with low vram, you can now enable vram management with a command line argument setting:
+```bash
+VISIBLE_GPU_NUM=1
+torchrun --nproc_per_node ${VISIBLE_GPU_NUM} code/panoramic_image_to_video.py \
+  --inout_dir="./output/example1"  \
+  --resolution=720 \
+  --enable_vram_management # enable this to allow model to run on devices with at least 19G vram.
+```
 - 🏡 **Step 3: Extract 3D Scene**
 
 Here we provide two options, one is high-quality optimization-based 3D scene reconstruction and another is efficient feed-forward 3D scene reconstruction.
