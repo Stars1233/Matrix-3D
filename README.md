@@ -414,6 +414,16 @@ torchrun --nproc_per_node ${VISIBLE_GPU_NUM} code/panoramic_image_to_video.py \
 
 All camera matrices used in our project are world to camera matrices in opencv format. Please refer to the sample file `./data/test_cameras/test_cam_front.json`, and use `code/generate_example_camera.py` to generate your own camera trajectory.
 
+## 🖱️ Gradio Demo
+We also provide a Gradio demo to visualize results online. To launch the demo, run the following command in your terminal:
+```
+python code/matrix.py --max_gpus=1
+```
+
+Notes on GPU Configuration:
+- Single GPU (--max_gpus=1): Currently only supports the text-to-video-to-3D generation workflow. Ensure your GPU has at least 62 GB of memory to run this mode smoothly.
+- Multiple GPUs (--max_gpus=N, N≥2): Supports both Supports both text-to-video-to-3D and image-to-video-to-3D generation workflows. Allocate GPUs based on your hardware resources to optimize performance.
+
 
 ## 📚 Citation
 If you find this project useful, please consider citing it as follows:
