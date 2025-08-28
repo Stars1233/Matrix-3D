@@ -16,8 +16,7 @@ python code/panoramic_image_generation.py \
 VISIBLE_GPU_NUM=1
 torchrun --nproc_per_node ${VISIBLE_GPU_NUM} code/panoramic_image_to_video.py \
   --inout_dir=$output_dir  \
-  --resolution=720 \
-  --enable_vram_management # enables low mem device inference;
+  --resolution=720
 
 # Step3: 3d scene extraction
 python code/panoramic_video_to_3DScene.py \
