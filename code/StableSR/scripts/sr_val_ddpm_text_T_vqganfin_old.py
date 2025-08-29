@@ -236,8 +236,9 @@ def main():
 	outpath = opt.outdir
 
 	batch_size = opt.n_samples
-
-	img_list_ori = os.listdir(opt.init_img)
+	# gather only png images for super resolution.
+	img_list_ori_ = os.listdir(opt.init_img)
+	img_list_ori = [i for i in img_list_ori_ if i.endswith(".png")]
 	img_list = copy.deepcopy(img_list_ori)
 	init_image_list = []
 	for item in img_list_ori:
