@@ -26,7 +26,7 @@
 
 
 ## 🗞️ News
-- Aug 29, 2025: 🎉 We provide a gradio script for Matrix-3D!
+- Aug 29, 2025: 🎉 We provide a [gradio demo](https://github.com/SkyworkAI/Matrix-3D/tree/main?tab=readme-ov-file#%EF%B8%8F-gradio-demo) for Matrix-3D!
 - Aug 25, 2025: 🎉 We provide a  [script](#lowvram) for running the generation process with 19G VRAM!
 - Aug 12, 2025: 🎉 We release the code, technical report and project page of Matrix-3D!
 
@@ -420,14 +420,14 @@ torchrun --nproc_per_node ${VISIBLE_GPU_NUM} code/panoramic_image_to_video.py \
 All camera matrices used in our project are world to camera matrices in opencv format. Please refer to the sample file `./data/test_cameras/test_cam_front.json`, and use `code/generate_example_camera.py` to generate your own camera trajectory.
 
 ## 🖱️ Gradio Demo
-We also provide a Gradio demo to visualize results online. To launch the demo, run the following command in your terminal:
+We also provide a Gradio demo for better visualization. To launch the demo, run the following command in your terminal:
 ```
 python code/matrix.py --max_gpus=1
 ```
 
 Notes on GPU Configuration:
-- Single GPU (--max_gpus=1): Currently only supports the text-to-video-to-3D generation workflow. Ensure your GPU has at least 62 GB of memory to run this mode smoothly.
-- Multiple GPUs (--max_gpus=N, N≥2): Supports both Supports both text-to-video-to-3D and image-to-video-to-3D generation workflows. Allocate GPUs based on your hardware resources to optimize performance.
+- Single GPU (--max_gpus=1): Currently only supports text-video-3D generation workflow. Ensure your GPU has at least 62 GB of memory to run this mode smoothly.
+- Multiple GPUs (--max_gpus=N, N≥2): Supports both Supports both text-video-3D and image-video-3D generation workflows. Allocate GPUs based on your hardware resources to optimize performance.
 
 
 ## 📚 Citation
