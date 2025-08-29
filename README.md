@@ -25,6 +25,10 @@
 - **Speed-Quality Balance**: Two types of panoramic 3D reconstruction methods are proposed to achieve rapid and detailed 3D reconstruction respectively.
 
 
+## 🗞️ News
+- We provide a Gradio demo to visualize results online.
+- We provide a  [script](#lowvram) for running the generation process with 19G VRAM.
+
 
 ## Image-to-Scene Generation
 <table border="1">
