@@ -214,7 +214,7 @@ chmod +x install.sh
 |PanoLRM-480p|pano_lrm_480p.pt|[Link](https://huggingface.co/Skywork/Matrix-3D)|
 
 <!-- ## 📊 GPU vram requirement -->
-The minimum GPU VRAM requirement to run our whole pipeline is **16G**. We provide a  [script](#lowvram) for running the video generation process with low VRAM, so that one can generate 720p video with only 19G VRAM.
+The minimum GPU VRAM requirement to run our whole pipeline is **16G**. We provide a  [script](#lowvram) for running the video generation process with low VRAM mode, so that one can generate 720p video with only 19G VRAM.
 The specific amount of GPU vram occupation under different model settings are listed below.
 | Model Name | VRAM |VRAM with low-vram mode |
 | :---------: | :----------: | :----------: |
