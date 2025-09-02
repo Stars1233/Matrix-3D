@@ -211,7 +211,7 @@ chmod +x install.sh
 |Text2PanoImage|text2panoimage_lora.safetensors| [Link](https://huggingface.co/Skywork/Matrix-3D)|
 |PanoVideoGen-480p|pano_video_gen_480p.ckpt|[Link](https://huggingface.co/Skywork/Matrix-3D)|
 |PanoVideoGen-720p|pano_video_gen_720p.bin|[Link](https://huggingface.co/Skywork/Matrix-3D)|
-|PanoVideoGen-720p-5b|pano_video_gen_720p_5b.safetensors|[Link](https://huggingface.co/Skywork/Matrix-3D)|
+|PanoVideoGen-720p-5B|pano_video_gen_720p_5b.safetensors|[Link](https://huggingface.co/Skywork/Matrix-3D)|
 |PanoLRM-480p|pano_lrm_480p.pt|[Link](https://huggingface.co/Skywork/Matrix-3D)|
 
 <!-- ## 📊 GPU vram requirement -->
