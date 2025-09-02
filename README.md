@@ -214,12 +214,15 @@ chmod +x install.sh
 |PanoLRM-480p|pano_lrm_480p.pt|[Link](https://huggingface.co/Skywork/Matrix-3D)|
 
 ## 📊 GPU vram requirement
-The minimum GPU vram requirement to run our pipeline is 16g. The specific amount of GPU vram occupation under different model settings are listed below.
+The minimum GPU VRAM requirement to run our pipeline is 16G. We provide a  [script](#lowvram) for running the video generation process with low VRAM, so that one can generate 720p video with only 19G VRAM.
+The specific amount of GPU vram occupation under different model settings are listed below.
 | Model Name | vram management on/off |VRAM |
 | :---------: | :----------: | :----------: |
+| Text2PanoImage| off | ~16g |
 | PanoVideoGen-480p| off | ~40g |
 | PanoVideoGen-720p| off | ~60g |
 | PanoVideoGen-720p-5b| off | ~19g |
+|PanoLRM-480p| off | ~80g |
 | PanoVideoGen-480p| on | ~15g |
 | PanoVideoGen-720p| on | ~19g |
 | PanoVideoGen-720p-5b| on | ~12g |
@@ -238,8 +241,8 @@ The minimum GPU vram requirement to run our pipeline is 16g. The specific amount
 [Wan_Lora](https://huggingface.co/Skywork/Matrix-3D)
 [VEnhancer](https://huggingface.co/jwhejwhe/VEnhancer/resolve/main/venhancer_v2.pt?download=true) -->
 
-Currently the generation process takes 40G VRAM for 480p panorama video and 60G VRAM for 720p panorama video normally. We also provide a  [script](#lowvram) for running the generation process with 19G VRAM.
-Besides, we will soon release a smaller checkpoint which takes only 24G VRAM (e.g. NVIDIA RTX 4090 GPU) for 720p video generation.
+<!-- Currently the generation process takes 40G VRAM for 480p panorama video and 60G VRAM for 720p panorama video normally. We also provide a  [script](#lowvram) for running the generation process of 720p resolution with 19G VRAM.
+Besides, we will soon release a smaller checkpoint which takes only 24G VRAM (e.g. NVIDIA RTX 4090 GPU) for 720p video generation. -->
 
 ## 🎮 Usage
 - 🔧 **Checkpoint Download**
