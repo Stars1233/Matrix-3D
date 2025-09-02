@@ -72,7 +72,20 @@ def load_model_from_single_file(state_dict, model_names, model_classes, model_re
             model = model_class(**extra_kwargs)
         if hasattr(model, "eval"):
             model = model.eval()
-        model.load_state_dict(model_state_dict, assign=True)
+
+        model = model.to_empty(device='cpu')
+        for param in model.parameters():
+            param.data.zero_()
+            #param.data.normal_()
+        missing_keys,unexpected_keys = model.load_state_dict(model_state_dict,strict=False, assign=True)
+        print(f"missing keys: {missing_keys} unexpected keys: {unexpected_keys}")
+        # patch_embedding_extra_concate.weight', 'patch_embedding_extra_concate.bias
+        #if model_name == "wan_video_dit":
+        #    sov = torch.zeros_like(model.patch_embedding_extra_concate.weight.data)
+        #    sov[:,:48,:,:,:].data.copy_(model.patch_embedding.weight.data)
+        #print(model.patch_embedding_extra_concate.weight.data.__class__,model.patch_embedding_extra_concate.weight.data.shape)
+        #    model.patch_embedding_extra_concate.weight.data.copy_(sov.data)
+        #    model.patch_embedding_extra_concate.bias.data.copy_(model.patch_embedding.bias.data)
         model = model.to(dtype=torch_dtype, device=device)
         loaded_model_names.append(model_name)
         loaded_models.append(model)
@@ -426,7 +439,7 @@ class ModelManager:
             self.load_model(file_path, model_names, device=device, torch_dtype=torch_dtype)
 
     
-    def fetch_model(self, model_name, file_path=None, require_model_path=False):
+    def fetch_model(self, model_name, file_path=None, require_model_path=False, index=None):
         fetched_models = []
         fetched_model_paths = []
         for model, model_path, model_name_ in zip(self.model, self.model_path, self.model_name):
@@ -440,12 +453,25 @@ class ModelManager:
             return None
         if len(fetched_models) == 1:
             print(f"Using {model_name} from {fetched_model_paths[0]}.")
+            model = fetched_models[0]
+            path = fetched_model_paths[0]
         else:
-            print(f"More than one {model_name} models are loaded in model manager: {fetched_model_paths}. Using {model_name} from {fetched_model_paths[0]}.")
+            if index is None:
+                model = fetched_models[0]
+                path = fetched_model_paths[0]
+                print(f"More than one {model_name} models are loaded in model manager: {fetched_model_paths}. Using {model_name} from {fetched_model_paths[0]}.")
+            elif isinstance(index, int):
+                model = fetched_models[:index]
+                path = fetched_model_paths[:index]
+                print(f"More than one {model_name} models are loaded in model manager: {fetched_model_paths}. Using {model_name} from {fetched_model_paths[:index]}.")
+            else:
+                model = fetched_models
+                path = fetched_model_paths
+                print(f"More than one {model_name} models are loaded in model manager: {fetched_model_paths}. Using {model_name} from {fetched_model_paths}.")
         if require_model_path:
-            return fetched_models[0], fetched_model_paths[0]
+            return model, path
         else:
-            return fetched_models[0]
+            return model
         
 
     def to(self, device):

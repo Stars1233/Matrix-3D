@@ -289,6 +289,15 @@ torchrun --nproc_per_node ${VISIBLE_GPU_NUM} code/panoramic_image_to_video.py \
   --enable_vram_management # enable this to allow model to run on devices with 19G vram.
 ```
 
+<span id="5b">**5b model**</span> We recently developed a 5b version of our video generation model based on Wan2.2-TI2V-5b model. The 5b model achieves fast video generation as well as lower vram usage. To run the video generation with 5b model, you can now enable 5b model usage with a command line argument setting:
+```bash
+VISIBLE_GPU_NUM=1
+torchrun --nproc_per_node ${VISIBLE_GPU_NUM} code/panoramic_image_to_video.py \
+  --inout_dir="./output/example1"  \
+  --resolution=720 \
+  --use_5b_model # enable this to allow model to run on devices with 19G vram.
+```
+
 - 🏡 **Step 3: Extract 3D Scene**
 
 Here we provide two options, one is high-quality optimization-based 3D scene reconstruction and another is efficient feed-forward 3D scene reconstruction.

@@ -29,7 +29,7 @@ pip install jaxtyping==0.3.2
 pip install modelscope==1.28.2
 pip install diffusers==0.34.0
 pip install matplotlib==3.8.4
-pip install transformers==4.51.0
+pip install transformers==4.56.0
 pip install torchmetrics==0.7.0
 pip install OmegaConf==2.1.1
 pip install imageio-ffmpeg==0.6.0
