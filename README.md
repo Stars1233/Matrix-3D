@@ -202,12 +202,24 @@ chmod +x install.sh
 ./install.sh
 
 ```
+## 📊 GPU vram requirement
+The minimum GPU vram requirement to run our pipeline is 16g. The specific amount of GPU vram occupation under different model settings are listed below.
+| Model Name | VRAM |
+| :---------: | :----------: |
+| PanoVideoGen-480p w.o. vram management | ~40g |
+| PanoVideoGen-720p w.o. vram management | ~60g |
+| PanoVideoGen-720p-5b w.o. vram management | ~19g |
+| PanoVideoGen-480p w. vram management | ~15g |
+| PanoVideoGen-720p w. vram management | ~19g |
+| PanoVideoGen-720p-5b w. vram management | ~12g |
+
 ## 💫 Pretrained Models
 | Model Name | Description | Download |
 | :---------: | :----------: |  :-: | 
 |Text2PanoImage|text2panoimage_lora.safetensors| [Link](https://huggingface.co/Skywork/Matrix-3D)|
 |PanoVideoGen-480p|pano_video_gen_480p.ckpt|[Link](https://huggingface.co/Skywork/Matrix-3D)|
 |PanoVideoGen-720p|pano_video_gen_720p.bin|[Link](https://huggingface.co/Skywork/Matrix-3D)|
+|PanoVideoGen-720p-5b|lora_5b.safetensors|[Link](https://huggingface.co/Skywork/Matrix-3D)|
 |PanoLRM-480p|pano_lrm_480p.pt|[Link](https://huggingface.co/Skywork/Matrix-3D)|
 
 
@@ -295,7 +307,7 @@ VISIBLE_GPU_NUM=1
 torchrun --nproc_per_node ${VISIBLE_GPU_NUM} code/panoramic_image_to_video.py \
   --inout_dir="./output/example1"  \
   --resolution=720 \
-  --use_5b_model # enable this to allow model to run on devices with 19G vram.
+  --use_5b_model # enable this to generate video with light-weight 5b model.
 ```
 
 - 🏡 **Step 3: Extract 3D Scene**
