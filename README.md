@@ -26,6 +26,7 @@
 
 
 ## 🗞️ News
+- Sep 02, 2025: 🎉 We provide a 5B model with low-VRAM mode which only requires 12G VRAM! 
 - Aug 29, 2025: 🎉 We provide a [gradio demo](https://github.com/SkyworkAI/Matrix-3D/tree/main?tab=readme-ov-file#%EF%B8%8F-gradio-demo) for Matrix-3D!
 - Aug 25, 2025: 🎉 We provide a  [script](#lowvram) for running the generation process with 19G VRAM!
 - Aug 12, 2025: 🎉 We release the code, technical report and project page of Matrix-3D!
