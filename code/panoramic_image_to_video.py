@@ -342,7 +342,7 @@ def main(args):
             ],
             use_usp=True if dist.get_world_size() > 1 else False
         )
-        lora_checkpoint = os.path.abspath("./checkpoints/Wan-AI/wan-lora/lora_5b.safetensors")
+        lora_checkpoint = os.path.abspath("./checkpoints/Wan-AI/wan-lora/pano_video_gen_720p_5b.safetensors")
         model = add_lora_to_model(
             getattr(pipe, "dit"),
             "q,k,v,o,ffn.0,ffn.2".split(","),

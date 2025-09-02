@@ -202,16 +202,7 @@ chmod +x install.sh
 ./install.sh
 
 ```
-## 📊 GPU vram requirement
-The minimum GPU vram requirement to run our pipeline is 16g. The specific amount of GPU vram occupation under different model settings are listed below.
-| Model Name | VRAM |
-| :---------: | :----------: |
-| PanoVideoGen-480p w.o. vram management | ~40g |
-| PanoVideoGen-720p w.o. vram management | ~60g |
-| PanoVideoGen-720p-5b w.o. vram management | ~19g |
-| PanoVideoGen-480p w. vram management | ~15g |
-| PanoVideoGen-720p w. vram management | ~19g |
-| PanoVideoGen-720p-5b w. vram management | ~12g |
+
 
 ## 💫 Pretrained Models
 | Model Name | Description | Download |
@@ -222,6 +213,16 @@ The minimum GPU vram requirement to run our pipeline is 16g. The specific amount
 |PanoVideoGen-720p-5b|lora_5b.safetensors|[Link](https://huggingface.co/Skywork/Matrix-3D)|
 |PanoLRM-480p|pano_lrm_480p.pt|[Link](https://huggingface.co/Skywork/Matrix-3D)|
 
+## 📊 GPU vram requirement
+The minimum GPU vram requirement to run our pipeline is 16g. The specific amount of GPU vram occupation under different model settings are listed below.
+| Model Name | vram management on/off |VRAM |
+| :---------: | :----------: | :----------: |
+| PanoVideoGen-480p| off | ~40g |
+| PanoVideoGen-720p| off | ~60g |
+| PanoVideoGen-720p-5b| off | ~19g |
+| PanoVideoGen-480p| on | ~15g |
+| PanoVideoGen-720p| on | ~19g |
+| PanoVideoGen-720p-5b| on | ~12g |
 
 <!-- | Model Name | Drop Location |
 | :---------: | :----------: | 
@@ -301,13 +302,13 @@ torchrun --nproc_per_node ${VISIBLE_GPU_NUM} code/panoramic_image_to_video.py \
   --enable_vram_management # enable this to allow model to run on devices with 19G vram.
 ```
 
-<span id="5b">**5b model**</span> We recently developed a 5b version of our video generation model based on Wan2.2-TI2V-5b model. The 5b model achieves fast video generation as well as lower vram usage. To run the video generation with 5b model, you can now enable 5b model usage with a command line argument setting:
+<span id="5B">**5B model**</span> We recently developed a 5B version of our video generation model based on Wan2.2-TI2V-5B model. The 5B model achieves fast video generation as well as lower vram usage. To run the video generation with 5B model, you can now enable 5B model usage with a command line argument setting:
 ```bash
 VISIBLE_GPU_NUM=1
 torchrun --nproc_per_node ${VISIBLE_GPU_NUM} code/panoramic_image_to_video.py \
   --inout_dir="./output/example1"  \
   --resolution=720 \
-  --use_5b_model # enable this to generate video with light-weight 5b model.
+  --use_5b_model # enable this to generate video with light-weight 5B model.
 ```
 
 - 🏡 **Step 3: Extract 3D Scene**
