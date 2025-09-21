@@ -464,6 +464,13 @@ If you find this project useful, please consider citing it as follows:
   journal   = {arXiv preprint arXiv:2508.08086},
   year      = {2025}
 }
+
+@article{dong2025panolora,
+  title     = {PanoLora: Bridging Perspective and Panoramic Video Generation with LoRA Adaptation},
+  author    = {Zeyu Dong and Yuyang Yin and Yuqi Li and Eric Li and Hao-Xiang Guo and Yikai Wang},
+  journal   = {arXiv preprint arXiv:2509.11092},
+  year      = {2025}
+}
 ```
 
 ---
